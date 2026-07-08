@@ -1,0 +1,335 @@
+/* ---------- Tokens ---------- */
+:root{
+  --bg: #0F1115;
+  --surface: #171A21;
+  --border: #2A2E37;
+  --text: #E8E6E1;
+  --muted: #8B93A1;
+  --accent: #4FD1C5;
+  --accent-dim: rgba(79, 209, 197, 0.15);
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --max-w: 1100px;
+  --gap: 32px;
+  --radius: 4px;
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{ color: inherit; text-decoration: none; }
+
+section{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 96px 24px;
+}
+
+.rotulo{
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+/* ---------- Header ---------- */
+.top{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 64px 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.nome{
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.titulos{
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-top: 14px;
+}
+
+.nav-inline{
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.nav-inline a{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-inline a:hover,
+.nav-inline a:focus-visible{
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.foto-wrap{
+  flex-shrink: 0;
+}
+
+.foto{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-color: rgb(8, 95, 255);
+}
+
+/* ---------- Sobre ---------- */
+.sobre-texto{
+  font-size: 1.15rem;
+  color: var(--text);
+  max-width: 70ch;
+}
+
+/* ---------- Projetos ---------- */
+.grid-projetos{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--gap);
+}
+
+.card-projeto{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card-projeto:hover{
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.thumb{
+  aspect-ratio: 16/10.5;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-projeto h3{
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  padding: 20px 20px 6px;
+}
+
+.card-projeto p{
+  color: var(--muted);
+  font-size: 0.95rem;
+  padding: 0 20px;
+  flex-grow: 1;
+}
+
+.link-projeto{
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  padding: 16px 20px 20px;
+}
+
+/* ---------- Processo / Timeline ---------- */
+.timeline{
+  list-style: none;
+  position: relative;
+  padding-left: 8px;
+}
+
+.timeline::before{
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+}
+
+.etapa{
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  position: relative;
+}
+
+.marcador{
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  z-index: 1;
+}
+
+.etapa-texto h3{
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.etapa-texto p{
+  color: var(--muted);
+  max-width: 55ch;
+}
+
+/* ---------- Contato ---------- */
+.contato-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.contato-item{
+  background: var(--surface);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.contato-item:hover,
+.contato-item:focus-visible{
+  background: #1D2029;
+}
+
+.contato-label{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contato-valor{
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* ---------- Rodapé ---------- */
+.rodape{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.btn-topo{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-topo:hover,
+.btn-topo:focus-visible{
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Foco visível ---------- */
+a:focus-visible, button:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  .reveal{ transition: none; opacity: 1; transform: none; }
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px){
+  .top{
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .foto{ width: 120px; height: 120px; }
+  section{ padding: 64px 20px; }
+  .etapa{ gap: 16px; }
+}
